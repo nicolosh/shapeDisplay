@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/point.h
+
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/shape.h
+string
+-
+vector
+-
+iostream
+-
+point.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/point.h
+math.h
+-
+
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/src/shape.cpp
+../include/shapes/shape.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/shape.h
+

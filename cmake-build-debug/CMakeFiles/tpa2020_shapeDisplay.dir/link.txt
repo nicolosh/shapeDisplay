@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/tpa2020_shapeDisplay.dir/main.cpp.o CMakeFiles/tpa2020_shapeDisplay.dir/src/display.cpp.o CMakeFiles/tpa2020_shapeDisplay.dir/src/point.cpp.o CMakeFiles/tpa2020_shapeDisplay.dir/src/shape.cpp.o  -o tpa2020_shapeDisplay.exe -Wl,--out-implib,libtpa2020_shapeDisplay.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

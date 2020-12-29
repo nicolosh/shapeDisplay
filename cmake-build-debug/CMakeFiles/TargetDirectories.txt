@@ -1,0 +1,3 @@
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/cmake-build-debug/CMakeFiles/tpa2020_shapeDisplay.dir
