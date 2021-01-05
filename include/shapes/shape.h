@@ -6,12 +6,11 @@
 #define TPA2020_SHAPEDISPLAY_SHAPE_H
 
 #include <string>
-#include <vector>
 #include <iostream>
 #include "point.h"
 #include <math.h>
 
-//Versione con le matrici (idea marta)........
+//Versione con le matrici (idea Marta)........
 
 //potrei tenermi dei riferimenti ai punti già stampati/occupati del display e controllare così
 //di non inserire shape sovrapponendole tra loro
@@ -24,11 +23,11 @@ namespace shapes {
     class Shape {
     protected:
         std::string name_;
-        const Point initialPoint_;
+        const Point initialPoint_; // sempre il vertice a sx della figura shape generica a parte cerchio ed ellisse
         double area_, perimeter_;
-        int heightDisplay_, widthDisplay_;
+        int heightDisplay_;
     public:
-        Shape(const std::string &name, const Point &initialPoint, int widthDisplay, int heightDisplay);
+        Shape(const std::string &name, const Point &initialPoint, int heightDisplay);
 
         virtual double area() const = 0;
 
@@ -47,14 +46,13 @@ namespace shapes {
     class Triangle : public Shape {
     protected:
         int base_, height_;
-        const Point v1_, v2_, v3_;
+        Point v1_, v2_, v3_;
 
         double sign(const Point &p1, const Point &p2, const Point &p3) const;
 
     public:
         Triangle(const std::string &name, const Point &initialPoint, int base, int height,
-                 int widthDisplay, int heightDisplay, const Point &v1, const Point &v2,
-                 const Point &v3);
+                 int heightDisplay, const Point &v1);
 
         double area() const override;
 
@@ -69,7 +67,7 @@ namespace shapes {
     protected:
         int radius_;
     public:
-        Circle(const std::string &name, const Point &initialPoint, int radius, int widthDisplay, int heightDisplay);
+        Circle(const std::string &name, const Point &initialPoint, int radius, int heightDisplay);
 
         double area() const override;
 
@@ -84,7 +82,7 @@ namespace shapes {
     protected:
         int height_, base_;
     public:
-        Rectangle(const std::string &name, const Point &initialPoint, int base, int height, int widthDisplay,
+        Rectangle(const std::string &name, const Point &initialPoint, int base, int height,
                   int heightDisplay);
 
         double area() const override;
@@ -100,8 +98,8 @@ namespace shapes {
     protected:
         int semiAxisX_, semiAxisY_;
     public:
-        Ellipse(const std::string &name, const Point &initialPoint, int semiAxisX, int semiAxisY, int widthDisplay,
-                       int heightDisplay);
+        Ellipse(const std::string &name, const Point &initialPoint, int semiAxisX, int semiAxisY,
+                int heightDisplay);
 
         double area() const override;
 
@@ -116,7 +114,7 @@ namespace shapes {
     protected:
         int D_, d_;
     public:
-        Rhombus(const std::string &name, const Point &initialPoint, int D, int d, int widthDisplay, int heightDisplay);
+        Rhombus(const std::string &name, const Point &initialPoint, int D, int d, int heightDisplay);
 
         double area() const override;
 
@@ -132,7 +130,7 @@ namespace shapes {
         int baseMajor_, baseMinor_, height_;
     public:
         Trapeze(const std::string &name, const Point &initialPointt, int baseMajor, int baseMinor, int height,
-                int widthDisplay, int heightDisplay);
+                int heightDisplay);
 
         double area() const override;
 
@@ -147,7 +145,7 @@ namespace shapes {
     protected:
         int base_, height_;
     public:
-        Parallelogram(const std::string &name, const Point &initialPoint, int base, int height, int widthDisplay,
+        Parallelogram(const std::string &name, const Point &initialPoint, int base, int height,
                       int heightDisplay);
 
         double area() const override;
@@ -163,7 +161,7 @@ namespace shapes {
     protected:
         int side_;
     public:
-        Square(const std::string &name, const Point &initialPoint, int side, int widthDisplay, int heightDisplay);
+        Square(const std::string &name, const Point &initialPoint, int side, int heightDisplay);
 
         double area() const override;
 

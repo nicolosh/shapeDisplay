@@ -4,9 +4,11 @@
 
 #include "../include/shapes/shape.h"
 
-shapes::Shape::Shape(const std::string &name, const Point &initialPoint, int widthDisplay,
-                     int heightDisplay) : name_(name), initialPoint_(initialPoint), widthDisplay_(widthDisplay),
-                                          heightDisplay_(heightDisplay) {}
+shapes::Shape::Shape(const std::string &name, const Point &initialPoint, int heightDisplay) : name_(name),
+                                                                                              initialPoint_(
+                                                                                                      initialPoint),
+                                                                                              heightDisplay_(
+                                                                                                      heightDisplay) {}
 
 //TRIANGLE
 
@@ -25,11 +27,14 @@ double shapes::Triangle::sign(const Point &p1, const Point &p2, const Point &p3)
     return (p1.x_ - p3.x_) * (p2.y_ - p3.y_) - (p2.x_ - p3.x_) * (p1.y_ - p3.y_);
 }
 
-shapes::Triangle::Triangle(const std::string &name, const Point &initialPoint, int base, int height, int widthDisplay,
-                           int heightDisplay, const Point &v1, const Point &v2,
-                           const Point &v3) :
-        Shape(name, initialPoint, widthDisplay, heightDisplay), base_(base), height_(height), v1_(v1), v2_(v2),
-        v3_(v3) {}
+shapes::Triangle::Triangle(const std::string &name, const Point &initialPoint, int base, int height,
+                           int heightDisplay, const Point &v1) :
+        Shape(name, initialPoint, heightDisplay), base_(base), height_(height), v1_(v1) {
+    v2_.x_ = v1_.x_ + base_;
+    v2_.y_ = v1_.y_;
+    v3_.x_ = v1_.x_ + base_ / 2;
+    v3_.y_ = v1_.y_ + height_;
+}
 
 double shapes::Triangle::area() const {
     return double(base_ * height_ / 2);
@@ -84,9 +89,9 @@ double shapes::Triangle::perimeter() const {
 
 //RECTANGLE
 
-shapes::Rectangle::Rectangle(const std::string &name, const Point &initialPoint, int base, int height, int widthDisplay,
+shapes::Rectangle::Rectangle(const std::string &name, const Point &initialPoint, int base, int height,
                              int heightDisplay) :
-        Shape(name, initialPoint, height, widthDisplay), base_(base), height_(height) {}
+        Shape(name, initialPoint, heightDisplay), base_(base), height_(height) {}
 
 double shapes::Rectangle::area() const {
     return double(base_ * height_);
@@ -127,9 +132,8 @@ bool shapes::Rectangle::isPointInsideShape(const shapes::Point &p) const {
 //ELLIPSE
 
 shapes::Ellipse::Ellipse(const std::string &name, const Point &initialPoint, int semiAxisX, int semiAxisY,
-                         int widthDisplay,
                          int heightDisplay) :
-        Shape(name, initialPoint, widthDisplay, heightDisplay), semiAxisX_(semiAxisX), semiAxisY_(semiAxisY) {}
+        Shape(name, initialPoint, heightDisplay), semiAxisX_(semiAxisX), semiAxisY_(semiAxisY) {}
 
 double shapes::Ellipse::area() const {
     return (M_PI * semiAxisX_ * semiAxisY_);
@@ -151,9 +155,9 @@ bool shapes::Ellipse::isPointInsideShape(const shapes::Point &p) const {
 
 //RHOMBUS
 
-shapes::Rhombus::Rhombus(const std::string &name, const Point &initialPoint, int D, int d, int widthDisplay,
+shapes::Rhombus::Rhombus(const std::string &name, const Point &initialPoint, int D, int d,
                          int heightDisplay) :
-        Shape(name, initialPoint, widthDisplay, heightDisplay), D_(D), d_(d) {}
+        Shape(name, initialPoint, heightDisplay), D_(D), d_(d) {}
 
 
 double shapes::Rhombus::area() const {
@@ -177,9 +181,9 @@ bool shapes::Rhombus::isPointInsideShape(const shapes::Point &p) const {
 
 //CIRCLE
 
-shapes::Circle::Circle(const std::string &name, const Point &initialPoint, int radius, int widthDisplay,
+shapes::Circle::Circle(const std::string &name, const Point &initialPoint, int radius,
                        int heightDisplay) :
-        Shape(name, initialPoint, widthDisplay, heightDisplay), radius_(radius) {}
+        Shape(name, initialPoint, heightDisplay), radius_(radius) {}
 
 double shapes::Circle::area() const {
     return (M_PI * radius_ * radius_);
@@ -206,9 +210,8 @@ bool shapes::Circle::isPointInsideShape(const shapes::Point &p) const {
 //TRAPEZE
 
 shapes::Trapeze::Trapeze(const std::string &name, const Point &initialPoint, int baseMajor, int baseMinor, int height,
-                         int widthDisplay,
                          int heightDisplay) :
-        Shape(name, initialPoint, widthDisplay,
+        Shape(name, initialPoint,
               heightDisplay), baseMajor_(baseMajor), baseMinor_(baseMinor), height_(height) {}
 
 
@@ -233,9 +236,8 @@ bool shapes::Trapeze::isPointInsideShape(const shapes::Point &p) const {
 //PARALLELOGRAM
 
 shapes::Parallelogram::Parallelogram(const std::string &name, const Point &initialPoint, int base, int height,
-                                     int widthDisplay,
                                      int heightDisplay) :
-        Shape(name, initialPoint, widthDisplay,
+        Shape(name, initialPoint,
               heightDisplay), base_(base), height_(height) {}
 
 double shapes::Parallelogram::area() const {
@@ -258,9 +260,9 @@ bool shapes::Parallelogram::isPointInsideShape(const shapes::Point &p) const {
 
 //SQUARE
 
-shapes::Square::Square(const std::string &name, const Point &initialPoint, int side, int widthDisplay,
+shapes::Square::Square(const std::string &name, const Point &initialPoint, int side,
                        int heightDisplay) :
-        Shape(name, initialPoint, widthDisplay,
+        Shape(name, initialPoint,
               heightDisplay), side_(side) {}
 
 double shapes::Square::area() const {

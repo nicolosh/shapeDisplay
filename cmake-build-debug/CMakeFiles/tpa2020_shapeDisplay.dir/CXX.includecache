@@ -6,12 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/display.h
+vector
+-
+shape.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/shape.h
+
 /cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/point.h
 
 /cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/shape.h
 string
--
-vector
 -
 iostream
 -
@@ -20,7 +24,17 @@ point.h
 math.h
 -
 
-/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/src/shape.cpp
-../include/shapes/shape.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/main.cpp
+iostream
+-
+include/shapes/shape.h
 /cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/shape.h
+include/shapes/display.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/display.h
+include/shapes/point.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/point.h
+
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/src/display.cpp
+../include/shapes/display.h
+/cygdrive/c/Users/nicol/OneDrive/Desktop/C++/tpa2020_shapeDisplay/include/shapes/display.h
 

@@ -16,13 +16,17 @@ namespace shapes {
         int height_, width_;
         std::vector<const Shape *> shapes_;
     public:
-        Display(int height, int width) : height_(height), width_(width) {}
+        Display(int width, int height) : width_(width), height_(height) {}
 
         int getHeight() const { return height_; }
 
         int getWidth() const { return width_; }
 
-        double totalArea() const;
+        void totalArea() const;
+
+        const std::vector<const Shape *> &getShapes() const { return shapes_; }
+
+        int getNumbersOfShapeInTheDisplay() const { return shapes_.size(); }
 
         void addShape(const Shape &shape); // aggiungo solo nella lista di shape del Display
         void removeShape(const Shape &shape); // rimuovo aggiungo solo nella lista di shape del Display

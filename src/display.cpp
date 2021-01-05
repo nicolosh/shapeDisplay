@@ -4,21 +4,22 @@
 
 #include "../include/shapes/display.h"
 
-double shapes::Display::totalArea() const {
+void shapes::Display::totalArea() const {
     double sum = 0.0;
     for (int i = 0; i < shapes_.size(); ++i)
         if (shapes_[i] != nullptr)
             sum += shapes_[i]->area();
 
-    return sum;
+    std::cout << "Total area of shapes in display: " << sum << std::endl;
 }
 
 void shapes::Display::addShape(const shapes::Shape &shape) {
     //verifico che NON stia nel display come dimensioni o posizione
     if ((shape.area() > (width_ * height_)) || (shape.perimeter() > (width_ + height_) * 2) ||
         (shape.perimeter() <= 0) || (shape.area() <= 0) ||
-        !((shape.getInitialPoint().x_ > 0) && (shape.getInitialPoint().x_ < width_)) ||
-        !((shape.getInitialPoint().y_ > 0) && (shape.getInitialPoint().y_ < height_))) // oppure se shape non è lista di tutte le possibili shape 2D
+        !((shape.getInitialPoint().x_ >= 0) && (shape.getInitialPoint().x_ <= width_)) ||
+        !((shape.getInitialPoint().y_ >= 0) &&
+          (shape.getInitialPoint().y_ <= height_))) // oppure se shape non è lista di tutte le possibili shape 2D
     {
         std::cout << "Cannot add this shape " << shape.getName() << std::endl;
         return;
@@ -26,9 +27,8 @@ void shapes::Display::addShape(const shapes::Shape &shape) {
 
     //condizioni che non vanno bene
     for (int i = 1; i < shapes_.size(); ++i) {
-        if (!shapes_[i-1]->isPointInsideShape(shape.getInitialPoint()))
-        {
-            std::cout << "Cannot add this shape " << shape.getName() << std::endl;
+        if (!shapes_[i - 1]->isPointInsideShape(shape.getInitialPoint())) {
+            std::cout << "Cannot add your shape " << shape.getName() << std::endl;
             return;
         }
     }
